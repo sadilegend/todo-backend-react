@@ -68,7 +68,7 @@ pipeline {
       steps {
         container('kubectl') {
           script {
-            withCredentials([file(credentialsId: config, variable: 'TMPKUBECONFIG')]) {
+            withCredentials([file(credentialsId: 'config', variable: 'TMPKUBECONFIG')]) {
               sh "cat \$TMPKUBECONFIG"
               sh "cp \$TMPKUBECONFIG /.kube/config"
               sh "kubectl apply -f "
