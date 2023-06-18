@@ -30,7 +30,8 @@ pipeline {
           - cat
           tty: true
         securityContext:
-          runAsUser: 1000
+          runAsUser: 0
+          runAsGroup: 0
         imagePullSecrets:
           - name: regcred
         volumes:
