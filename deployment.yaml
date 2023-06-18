@@ -15,7 +15,7 @@ spec:
         app: react-backend
     spec:
       containers:
-        - name: react-front
+        - name: react-backend
           image: sadilegend/todo-backend:latest
           ports:
             - containerPort: 6200
