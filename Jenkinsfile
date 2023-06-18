@@ -16,28 +16,28 @@ pipeline {
           nameserver:
             - 8.8.8.8
         containers:
-          - name: docker
-            image: docker:latest
-            command:
-              - cat
-            tty: true
-            volumeMounts:
-              - mountPath: /var/run/docker.sock
-                name: docker-sock
-          - name: kubectl
-            image: bitnami/kubectl:latest
-            command:
-              - cat
-            tty: true
-          securityContext:
-            runAsUser: 1000
-          imagePullSecrets:
-            - name: regcred
-          volumes:
-            - name: docker-sock
-              hostPath:
-                path: /var/run/docker.sock
-              '''
+        - name: docker
+          image: docker:latest
+          command:
+          - cat
+          tty: true
+          volumeMounts:
+            - mountPath: /var/run/docker.sock
+              name: docker-sock
+        - name: kubectl
+          image: bitnami/kubectl:latest
+          command:
+          - cat
+          tty: true
+        securityContext:
+          runAsUser: 1000
+        imagePullSecrets:
+          - name: regcred
+        volumes:
+          - name: docker-sock
+            hostPath:
+              path: /var/run/docker.sock
+            '''
     }
   }
 
