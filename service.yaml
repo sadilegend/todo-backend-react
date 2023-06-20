@@ -8,7 +8,7 @@ spec:
   selector:
     app: react-backend
   ports:
-    - name: http
+    - name: TCP
       port: 6200
       targetPort: 6200
       nodePort: 32600
